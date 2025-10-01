@@ -5,3 +5,5 @@
 @for (card of cards(); track card.url) {
   <app-card [name] = card.name [url] = card.url/>
 }
+
+<app-pagination (emitPrevClicked)="getPrevPage()" (emitNextClicked)="getNextPage()"/>
