@@ -1,3 +1,7 @@
-<p>catalog works! ${{data()}}</p>
+<p>catalog works!</p>
 
-<app-pagination></app-pagination>
+<!-- @let t = cards(); -->
+
+@for (card of cards(); track card.url) {
+  <app-card [name] = card.name [url] = card.url/>
+}

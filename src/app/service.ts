@@ -1,4 +1,32 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ApiService {
   private http = inject(HttpClient);
-  GetCatalog() {
-    return this.http.get("https://pokeapi.co/api/v2/ability/")
+
+  private url = "https://pokeapi.co/api/v2/ability/";
+  private currentPage: number = -1;
+  private pageLimit: number = 20;
+  private getPage(num: number) {
+    return this.http.get(
+      `${this.url}?offset=${this.currentPage * this.pageLimit}&limit=${this.pageLimit}`);
   }
+  getNextPage(){
+    return this.getPage(++this.currentPage);
+  }
+  getPrevPage(){
+    return this.getPage(--this.currentPage);
+  }
+
+  private openedCard?: number = 0;
+  getPokemot(id: number) {
+    this.openedCard = id;
+    return this.http.get(this.url + id);
+  }
+}
+
+
