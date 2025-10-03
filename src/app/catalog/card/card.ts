@@ -7,6 +7,6 @@ import { Component, input } from '@angular/core';
   styleUrl: './card.scss'
 })
 export class Card {
-  name = input("Unknown Pokemon");
-  url = input("Unknown URL");
+  name = input.required();
+  url = input.required();
 }
