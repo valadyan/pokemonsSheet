@@ -1,10 +1,13 @@
-import { Component, inject,
-   signal, input, model } from '@angular/core';
+import { Component, inject, signal, input, model } from '@angular/core';
+
 import { ApiService } from '../service';
 import { Pagination } from "./pagination/pagination";
-import {ICard} from "../interfaces"
 import { Card } from "./card/card";
 
+import { ICard, IPageResponse } from "../interfaces"
+
+
+type bb = {result: ICard[];};
 
 @Component({
   selector: 'app-catalog',
@@ -19,22 +22,24 @@ export class Catalog {
   constructor() {
     this.getNextPage();
   }
-  
   getNextPage() {
-    this.service.getNextPage().subscribe((d: any) => {
-      this.cards.set(d?.results)
+    this.service.getNextPage().subscribe((d: {results: ICard[]}) => {
+      this.cards.set(d.results)
     });
   }
 
   getPrevPage() {
-    this.service.getPrevPage().subscribe((d: any) => {
-      this.cards.set(d?.results)
+    this.service.getPrevPage().subscribe((d: {results: ICard[]}) => {
+      this.cards.set(d.results)
     });
   }
 
-  getPokemot() {
+  getPokemon() {
     this.service.getPokemot(11).subscribe((d: any) => {
       console.log(d)
     });
   }
 }
+
+let cl = console.log;
+

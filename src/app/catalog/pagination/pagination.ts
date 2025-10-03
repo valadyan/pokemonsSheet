@@ -7,13 +7,15 @@ import { Component, output } from '@angular/core';
   styleUrl: './pagination.scss'
 })
 export class Pagination {
-  emitPrevClicked = output<void>();
-  prevClicked() {
-    this.emitPrevClicked.emit();
+  emitPrevPageClicked = output<void>();
+  prevPageClicked() {
+    this.emitPrevPageClicked.emit();
   }
   
-  emitNextClicked = output<void>();
-  nextClicked() {
-    this.emitNextClicked.emit();
+  emitNextPageClicked = output<void>();
+  nextPageClicked() {
+    this.emitNextPageClicked.emit();
   }
 }
+
+let cl = console.log;

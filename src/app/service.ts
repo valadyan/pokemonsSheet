@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 
+import { ICard } from './interfaces';
+
+let cl = console.log;
 @Injectable({
   providedIn: 'root',
 })
@@ -10,10 +13,11 @@ export class ApiService {
 
   private url = "https://pokeapi.co/api/v2/ability/";
   private currentPage: number = -1;
-  private pageLimit: number = 20;
+  private pageLimit: number = 5;
   private getPage(num: number) {
-    return this.http.get(
-      `${this.url}?offset=${this.currentPage * this.pageLimit}&limit=${this.pageLimit}`);
+    return this.http.get<{results: ICard[]}>(this.url,
+       { params: { offset: this.currentPage * this.pageLimit, limit: this.pageLimit} } )
+
   }
   getNextPage(){
     return this.getPage(++this.currentPage);
