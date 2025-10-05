@@ -1,3 +1,5 @@
-<p>card works!</p>
-<p>${{ name() }}</p>
-<p>${{ url() }}</p>
+
+<a [routerLink]="['card', id()]">
+    <p>${{ name() }}</p>
+    <p>${{ url() }}</p>
+</a>
