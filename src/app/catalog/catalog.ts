@@ -4,7 +4,7 @@ import { ApiService } from '../service';
 import { Pagination } from "./pagination/pagination";
 import { Card } from "./card/card";
 
-import { ICard, IPageResponse } from "../interfaces"
+import { ICard, IPageResponse, IPokemon } from "../interfaces"
 
 @Component({
   selector: 'app-catalog',
@@ -17,7 +17,9 @@ export class Catalog {
   private service = inject(ApiService);
   
   ngOnInit() {
-    this.getNextPage();
+    this.service.getCurrPage().subscribe((d: {results: ICard[]}) => {
+      this.cards.set(d.results)
+    });
   }
   
   getNextPage() {
@@ -30,12 +32,6 @@ export class Catalog {
   getPrevPage() {
     this.service.getPrevPage().subscribe((d: {results: ICard[]}) => {
       this.cards.set(d.results)
-    });
-  }
-
-  getPokemon() {
-    this.service.getPokemot(11).subscribe((d: any) => {
-      console.log(d)
     });
   }
 }

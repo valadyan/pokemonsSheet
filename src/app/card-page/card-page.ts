@@ -1,6 +1,8 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { ApiService } from '../service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { IPokemon } from '../interfaces';
 
 @Component({
   selector: 'app-card-page',
@@ -11,17 +13,35 @@ import { ActivatedRoute } from '@angular/router';
 export class CardPage {
   private service = inject(ApiService);
   private pokemonId = signal(0);
+  pokemonData: Partial<IPokemon>;
 
+  private setPokemon(id: number){
+    this.service.getPokemot(id).subscribe((d: IPokemon) => {
+      this.pokemonData = d;
+      this.pokemonId.set(id);
+    });
+  }
+
+  private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
+
   constructor() {
     this.activatedRoute.params.subscribe((params) => {
       this.pokemonId.set(params['id']);
     });
+    this.pokemonData = {}
   } 
-
   ngOnInit() {
-    this.service.getPokemot(this.pokemonId()).subscribe((d: any) => {
-      console.log(d)
-    });
+    this.setPokemon(this.pokemonId());
+  }
+  
+
+  prevCardClicked() {
+    this.router.navigate(['card', this.pokemonId() - 1]);
+    this.setPokemon(this.pokemonId() - 1);
+  }
+  nextNextClicked() {
+    this.router.navigate(['card', +this.pokemonId() + 1]);
+    this.setPokemon(+this.pokemonId() + 1);
   }
 }

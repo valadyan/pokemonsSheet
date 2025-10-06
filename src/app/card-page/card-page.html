@@ -1,1 +1,27 @@
-<p>card-page works!</p>
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td>{{pokemonData.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">base_experience</th>
+      <td>{{pokemonData.base_experience}}</td>
+    </tr>
+    <tr>
+      <th scope="row">height</th>
+      <td>{{pokemonData.height}}</td>
+    </tr>
+    <tr>
+      <th scope="row">weight</th>
+      <td>{{pokemonData.weight}}</td>
+    </tr>
+    <tr>
+      <th scope="row">order</th>
+      <td>{{pokemonData.order}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="prevCardClicked()"> <- </button>
+<button (click)="nextNextClicked()"> -> </button>
