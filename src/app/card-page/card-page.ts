@@ -35,7 +35,9 @@ export class CardPage {
     this.setPokemon(this.pokemonId());
   }
   
-
+  goCatalog() {
+    this.router.navigate(['']);
+  }
   prevCardClicked() {
     this.router.navigate(['card', this.pokemonId() - 1]);
     this.setPokemon(this.pokemonId() - 1);
