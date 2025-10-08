@@ -1,9 +1,9 @@
-<p>catalog works!</p>
-
-<!-- @let t = cards(); -->
-
-@for (card of cards(); track card.url) {
-  <app-card [name] = card.name [url] = card.url/>
-}
+<ul>
+  @for (card of cards(); track card.url) {
+    <li>
+      <app-card [name] = card.name [url] = card.url/>
+    </li>
+  }
+</ul>
 
 <app-pagination (emitPrevPageClicked)="getPrevPage()" (emitNextPageClicked)="getNextPage()"/>

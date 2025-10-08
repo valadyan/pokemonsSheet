@@ -5,6 +5,8 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 
 import { GALLERY_CONFIG, GalleryConfig } from 'ng-gallery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
