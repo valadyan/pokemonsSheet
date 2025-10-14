@@ -4,6 +4,11 @@ table {
   font-family: sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
+
+  width:60%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 caption {
@@ -37,4 +42,16 @@ tfoot th {
 
 tfoot td {
   font-weight: bold;
+}
+
+
+.photo {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+}
+
+.backButton{
+  position: absolute;
+  padding: 13px;
 }

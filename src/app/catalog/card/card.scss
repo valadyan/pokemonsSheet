@@ -1,0 +1,24 @@
+div {
+    display: flex;
+    border: 1px solid #858585a4;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+div:hover{
+    border: 3px solid #0f6f7c;
+    border-radius: 5px;
+    padding: 3px;
+    p {
+        color:#0f6f7c;
+    }
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+p {
+    margin-top: 38px;
+}
