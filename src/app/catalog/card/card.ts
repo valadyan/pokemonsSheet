@@ -10,6 +10,7 @@ import { RouterLink } from '@angular/router';
 export class Card {
   name = input.required<string>();
   url = input.required<string>();
+  
 
   id = computed( () => {
     const arr = this.url().split('/');

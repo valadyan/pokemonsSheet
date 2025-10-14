@@ -1,4 +1,9 @@
-<button (click)="goCatalog()"> <- </button>
+<button class="backButton" (click)="goCatalog()"> <- </button>
+
+<div class="photo">
+  <gallery [items]="images"></gallery>
+</div>
+
 <table>
   <tbody>
     <tr>

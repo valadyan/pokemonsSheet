@@ -13,7 +13,7 @@ export class ApiService {
 
   private url = "https://pokeapi.co/api/v2/";
   private currentPage: number = 0;
-  private pageLimit: number = 5;
+  private pageLimit: number = 20;
   private getPage(num: number) {
     return this.http.get<{results: ICard[]}>(this.url + 'ability/',
        { params: { offset: this.currentPage * this.pageLimit, limit: this.pageLimit} } )
