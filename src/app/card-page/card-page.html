@@ -2,31 +2,33 @@
   <button class="backButton"> <- </button>
 </div>
 
+@let imgs = images$ | async;
 <div class="photo">
-  <gallery [items]="images"></gallery>
+  <gallery [items]="imgs!"></gallery>
 </div>
 
+@let pokemon = pokemonData$ | async;
 <table>
   <tbody>
     <tr>
       <th scope="row">Name</th>
-      <td>{{pokemonData.name}}</td>
+      <td>{{pokemon?.name}}</td>
     </tr>
     <tr>
       <th scope="row">base_experience</th>
-      <td>{{pokemonData.base_experience}}</td>
+      <td>{{pokemon?.base_experience}}</td>
     </tr>
     <tr>
       <th scope="row">height</th>
-      <td>{{pokemonData.height}}</td>
+      <td>{{pokemon?.height}}</td>
     </tr>
     <tr>
       <th scope="row">weight</th>
-      <td>{{pokemonData.weight}}</td>
+      <td>{{pokemon?.weight}}</td>
     </tr>
     <tr>
       <th scope="row">order</th>
-      <td>{{pokemonData.order}}</td>
+      <td>{{pokemon?.order}}</td>
     </tr>
   </tbody>
 </table>
@@ -36,7 +38,7 @@
     <button> <- </button>
   </div>
 
-  <div [routerLink]="['/card', (+pokemonId()+1)]">
+  <div [routerLink]="['/card', (pokemonId()+1)]">
     <button> ->да ёбаные кнопки идите нахуй пока что </button>
   </div>
 </div>
