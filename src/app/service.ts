@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   private openedCard?: number = 0;
-  getPokemot(id: number) {
+  getPokemon(id: number) {
     this.openedCard = id;
     return this.http.get<IPokemon>(this.url + 'pokemon/' + id);
   }

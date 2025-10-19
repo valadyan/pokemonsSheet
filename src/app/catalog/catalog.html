@@ -1,7 +1,7 @@
 <ul>
   @for (card of cards(); track card.url) {
     <li>
-      <app-card [name] = card.name [url] = card.url/>
+      <app-card [info] = card/>
     </li>
   }
 </ul>

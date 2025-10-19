@@ -1,6 +1,8 @@
 import { Component, computed, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { ICard } from "../../interfaces"
+
 @Component({
   selector: 'app-card',
   imports: [RouterLink],
@@ -8,12 +10,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './card.scss'
 })
 export class Card {
-  name = input.required<string>();
-  url = input.required<string>();
-  
+  info = input.required<ICard>();
 
   id = computed( () => {
-    const arr = this.url().split('/');
+    const arr = this.info().url.split('/');
     arr.pop();
     return arr.pop(); // da kringe
   });
